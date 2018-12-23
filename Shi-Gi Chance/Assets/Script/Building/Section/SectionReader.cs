@@ -3,25 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class Section : MonoBehaviour
+public class SectionReader : MonoBehaviour
 {
 
-	[SerializeField] SecInfo sec;
+	[SerializeField] GameObject sec;
 	public int id;
-	public string type;
+	public string SecType = "HouseData";
 
 	private void Awake()
 	{
-		
+
 	}
 
 	// Use this for initialization
 	void Start()
 	{
-		/*
-		GameObject newCard = GameObject.Instantiate(card, new Vector3(50, -50, (float)0.1 * deckLeft.Count), Quaternion.identity);//製造新卡片模板
-		newCard.gameObject.transform.GetChild(0).GetComponent<cardInfo>().info = read(id);//從資料庫中讀取卡片資料，存放至card_A
-		*/
+		GameObject NewSec = GameObject.Instantiate(sec);//製造新區段
+		NewSec.gameObject.GetComponent<SectionInfo>().info = read(id);//從資料庫中讀取區段資料並傳出
+		
 	}
 
 	// Update is called once per frame
@@ -35,7 +34,7 @@ public class Section : MonoBehaviour
 	//////////////////
 	SecInfo read(int id)//從檔案讀取
 	{
-		FileStream aFile = new FileStream("Assets/deck/" + id + ".json", FileMode.Open);
+		FileStream aFile = new FileStream("Assets/Database/" + SecType + "/" + id + ".json", FileMode.Open);
 		StreamReader sr = new StreamReader(aFile);
 		string strLine = sr.ReadLine();
 		aFile.Close();
