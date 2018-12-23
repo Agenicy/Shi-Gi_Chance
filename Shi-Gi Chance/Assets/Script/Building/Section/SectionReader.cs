@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class Section : MonoBehaviour
+public class SectionReader : MonoBehaviour
 {
 
 	[SerializeField] GameObject sec;
 	public int id;
-	public string type;
+	public string SecType = "HouseData";
 
 	private void Awake()
 	{
@@ -32,7 +32,6 @@ public class Section : MonoBehaviour
 	//////////////////
 
 	//////////////////
-	public string SecType = "HouseData";
 	SecInfo read(int id)//從檔案讀取
 	{
 		FileStream aFile = new FileStream("Assets/Database/" + SecType + "/" + id + ".json", FileMode.Open);
