@@ -9,6 +9,7 @@ public class SecInfo
 	public string Title;
 	public string Document;
 	public string Icon;
+	public string Type;
 }
 
 public class SectionInfo : MonoBehaviour
@@ -29,9 +30,8 @@ public class SectionInfo : MonoBehaviour
 
 	private void display()
 	{
-
+		transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(info.Icon);
 		transform.GetChild(0).GetChild(1).gameObject.GetComponent<Text>().text = info.Title;
 		transform.GetChild(0).GetChild(2).GetChild(0).gameObject.GetComponent<Text>().text = info.Document;
-		
 	}
 }
