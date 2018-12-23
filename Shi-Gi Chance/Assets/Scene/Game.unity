@@ -7410,7 +7410,7 @@ GameObject:
   - component: {fileID: 1965447947}
   - component: {fileID: 1965447946}
   m_Layer: 0
-  m_Name: (Canvas)PageTest
+  m_Name: (Canvas)PageTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
