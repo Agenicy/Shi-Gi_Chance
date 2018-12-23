@@ -31,5 +31,6 @@ public class FoodRegisterPageScript : MonoBehaviour {
 	void ObjectResize()
 	{
 		GetComponent<RectTransform>().sizeDelta = GetComponentInParent<RectTransform>().sizeDelta;
+		GetComponent<RectTransform>().localPosition = Vector3.zero;
 	}
 }
