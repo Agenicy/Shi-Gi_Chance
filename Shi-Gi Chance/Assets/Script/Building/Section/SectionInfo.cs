@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class SecInfo
 {
 	public int ID;
-	public string type;
 	public string Title;
 	public string Document;
 	public string Icon;
@@ -31,8 +30,8 @@ public class SectionInfo : MonoBehaviour
 	private void display()
 	{
 
-		//transform.GetChild(0).GetChild(1).gameObject.GetComponent<Text>().text = info.Title;
-		//transform.GetChild(0).GetChild(2).GetChild(0).gameObject.GetComponent<Text>().text = info.Document;
+		transform.GetChild(0).GetChild(1).gameObject.GetComponent<Text>().text = info.Title;
+		transform.GetChild(0).GetChild(2).GetChild(0).gameObject.GetComponent<Text>().text = info.Document;
 		
 	}
 }

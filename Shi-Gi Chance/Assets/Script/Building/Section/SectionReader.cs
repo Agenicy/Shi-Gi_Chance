@@ -18,14 +18,19 @@ public class SectionReader : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		GameObject NewSec = GameObject.Instantiate(sec);//製造新區段
-		NewSec.gameObject.GetComponent<SectionInfo>().info = read(id);//從資料庫中讀取區段資料並傳出
-		
 	}
 
 	// Update is called once per frame
+	private bool PageOpened = true;
 	void Update()
 	{
+		if (PageOpened)
+		{
+			PageOpened = false;
+			GameObject NewSec = GameObject.Instantiate(sec,transform,false);//製造新區段
+			NewSec.transform.parent = this.transform;
+			NewSec.gameObject.GetComponent<SectionInfo>().info = read(id);//從資料庫中讀取區段資料並傳出
+		}
 
 	}
 
@@ -37,6 +42,7 @@ public class SectionReader : MonoBehaviour
 		FileStream aFile = new FileStream("Assets/Database/" + SecType + "/" + id + ".json", FileMode.Open);
 		StreamReader sr = new StreamReader(aFile);
 		string strLine = sr.ReadLine();
+		Debug.Log(strLine);
 		aFile.Close();
 		return JsonUtility.FromJson<SecInfo>(strLine);
 	}

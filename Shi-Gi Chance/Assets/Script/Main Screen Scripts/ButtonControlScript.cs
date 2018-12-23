@@ -56,7 +56,7 @@ public class ButtonControlScript : MonoBehaviour {
 
 	//////////////////
 	public GameObject BuildPage;
-	private bool BuildPageIsShowing;
+	public bool BuildPageIsShowing;
 	void BuildButtonClicked()
 	{
 		Debug.Log("B");
