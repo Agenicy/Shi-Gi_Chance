@@ -33,4 +33,10 @@ public class BuildButtonButtonScript : MonoBehaviour {
 		GetComponent<RectTransform>().sizeDelta = new Vector2((Screen.width - 100) / 4, (Screen.width - 100) / 4);
 		transform.localPosition = new Vector3(60 + 2 * (Screen.width - 100) / 4 - (Screen.width / 2) + (Screen.width - 100) / 8, 20 + (Screen.width - 100) / 4 - (Screen.height / 2) - (Screen.width - 100) / 8, 5);
 	}
+	/////////////////
+	[SerializeField] Canvas BuildCanvas;
+	void CreateCanvas()
+	{
+
+	}
 }
