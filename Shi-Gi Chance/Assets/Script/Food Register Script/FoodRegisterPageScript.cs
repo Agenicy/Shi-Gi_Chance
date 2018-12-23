@@ -12,6 +12,7 @@ public class FoodRegisterPageScript : MonoBehaviour {
 	void Awake()
 	{
 		transform.SetParent(MainUI.transform);
+		
 	}
 
 	// Use this for initialization

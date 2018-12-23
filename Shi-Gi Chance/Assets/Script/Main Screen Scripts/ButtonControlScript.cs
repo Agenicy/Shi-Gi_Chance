@@ -26,6 +26,15 @@ public class ButtonControlScript : MonoBehaviour {
 		BuildButton.onClick.AddListener(BuildButtonClicked);
 		AchevementButton.onClick.AddListener(AchevementButtonClicked);
 		StatusButton.onClick.AddListener(StatusButtonClicked);
+
+		FoodRegisterPageIsShowing = false;
+		FoodRegisterPage.SetActive(FoodRegisterPageIsShowing);
+
+		BuildPageIsShowing = false;
+		BuildPage.SetActive(BuildPageIsShowing);
+
+		AchevementPageIsShowing = false;
+		AchevementPage.SetActive(AchevementPageIsShowing);
 	}
 	
 	// Update is called once per frame
@@ -35,24 +44,34 @@ public class ButtonControlScript : MonoBehaviour {
 	}
 
 	//////////////////
+	public GameObject FoodRegisterPage;
+	private bool FoodRegisterPageIsShowing;
 	
 	void FoodRegisterButtonClicked()
 	{
 		Debug.Log("A");
+		FoodRegisterPageIsShowing = !FoodRegisterPageIsShowing;
+		FoodRegisterPage.SetActive(FoodRegisterPageIsShowing);
 	}
 
 	//////////////////
-
+	public GameObject BuildPage;
+	private bool BuildPageIsShowing;
 	void BuildButtonClicked()
 	{
 		Debug.Log("B");
+		BuildPageIsShowing = !BuildPageIsShowing;
+		BuildPage.SetActive(BuildPageIsShowing);
 	}
 
 	//////////////////
-
+	public GameObject AchevementPage;
+	private bool AchevementPageIsShowing;
 	void AchevementButtonClicked()
 	{
 		Debug.Log("S");
+		AchevementPageIsShowing = !AchevementPageIsShowing;
+		AchevementPage.SetActive(AchevementPageIsShowing);
 	}
 
 	//////////////////
