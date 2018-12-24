@@ -14,7 +14,7 @@ public class DragChess : MonoBehaviour {
 		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
 
 		//滑鼠放開瞬間開啟旋轉鎖定
-		GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+		//GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
 
 		isDrag = true;
 	}

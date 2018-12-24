@@ -28,7 +28,7 @@ public class SectionReader : MonoBehaviour
 		{
 			PageOpened = false;
 			GameObject NewSec = GameObject.Instantiate(sec, this.transform, false);//製造新區段
-			NewSec.transform.parent = this.transform;
+			NewSec.transform.parent.SetParent(this.transform);
 			NewSec.gameObject.GetComponent<SectionInfo>().info = read(id);//從資料庫中讀取區段資料並傳出
 		}
 
