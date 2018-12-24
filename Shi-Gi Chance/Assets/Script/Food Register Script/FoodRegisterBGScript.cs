@@ -31,7 +31,7 @@ public class FoodRegisterBGScript : MonoBehaviour {
 	
 	void ObjectResize ()
 	{
-		GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width, Screen.height);
-		GetComponent<RectTransform>().localPosition = Vector3.zero;
+		//GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width, Screen.height - 160 - Screen.width / 4);
+		//GetComponent<RectTransform>().localPosition = Vector3.zero;
 	}
 }

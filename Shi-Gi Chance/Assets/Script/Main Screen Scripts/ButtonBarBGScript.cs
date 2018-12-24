@@ -28,7 +28,7 @@ public class ButtonBarBGScript : MonoBehaviour {
 	//////////////////
 	void ObjectResize()
 	{
-		GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width, (Screen.width - 100) / 2.3f);
+		GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width, (Screen.width - 100) / 2.45f);
 		GetComponent<RectTransform>().localPosition = new Vector3(0, -(Screen.height / 2) + GetComponent<RectTransform>().sizeDelta.y / 2, 0);
 	}
 }

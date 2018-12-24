@@ -36,22 +36,24 @@ public class FoodTypeControllerScript : MonoBehaviour {
 
 	void ObjectResize()
 	{
-		FoodType1.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 6, 80);
-		FoodType1.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 120);
+		//GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width, Screen.height - 160 - Screen.width / 4);
+		/*		FoodType1.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 6, 80);
+				FoodType1.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 120);
 
-		FoodType2.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 6, 80);
-		FoodType2.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 200);
+				FoodType2.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 6, 80);
+				FoodType2.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 200);
 
-		FoodType3.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 6, 80);
-		FoodType3.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 280);
+				FoodType3.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 6, 80);
+				FoodType3.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 280);
 
-		FoodType4.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 6, 80);
-		FoodType4.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 360);
+				FoodType4.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 6, 80);
+				FoodType4.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 360);
 
-		FoodType5.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 6, 80);
-		FoodType5.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 440);
+				FoodType5.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 6, 80);
+				FoodType5.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 440);
 
-		FoodType6.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 6, 80);
-		FoodType6.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 520);
+				FoodType6.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 6, 80);
+				FoodType6.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 520);
+		*/
 	}
 }

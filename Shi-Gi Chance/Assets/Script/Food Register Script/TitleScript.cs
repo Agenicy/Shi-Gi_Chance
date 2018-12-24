@@ -31,7 +31,7 @@ public class TitleScript : MonoBehaviour {
 
 	void ObjectResize()
 	{
-		GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width, 80);
-		GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 40);
+		//GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width, 80);
+		//GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 40);
 	}
 }
