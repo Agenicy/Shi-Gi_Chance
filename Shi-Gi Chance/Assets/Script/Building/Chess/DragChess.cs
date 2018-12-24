@@ -2,32 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragChess : MonoBehaviour {
+public class DragChess : MonoBehaviour
+{
 
-	private Vector3 offset;
-	//private float MousePower=10;
 	public bool isDrag;
+	public SecInfo Info;
 
+	private void Awake()
+	{
+		//預設生成時都是滑鼠按下的狀態
+		isDrag = true;
+	}
+
+	void Update()
+	{
+		//Detect if the middle mouse button is pressed
+		if (Input.GetKey(KeyCode.Mouse0))
+		{
+			transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
+		}
+		else
+		{
+			isDrag = false;
+			Invoke("DeleteThis", 0.1f);
+		}
+	}
+
+	/*
 	void OnMouseDown()
 	{
 
 		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
-
-		//滑鼠放開瞬間開啟旋轉鎖定
-		//GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
 
 		isDrag = true;
 	}
 
 	void OnMouseDrag()
 	{
+		
 		Vector3 newPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f);
 		transform.position = Camera.main.ScreenToWorldPoint(newPosition) + offset;
-
+		
 	}
-
-	void OnMouseUp()
+	*/
+	
+	void DeleteThis()
 	{
-		isDrag = false;
+		Destroy(this.gameObject);
 	}
 }

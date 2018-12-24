@@ -244,18 +244,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114056449972169816}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114512129556468368}
-        m_MethodName: ButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114512129556468368
@@ -269,9 +258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b660cdf8c4f227e428a332004c812d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChessTemplate: {fileID: 1212012662523226, guid: 02f8924f6aaafec439b7ec8afee6243a,
+  ChessTemplate: {fileID: 1776914992514350, guid: 424ba42833774e7479972e21256cff2a,
     type: 2}
-  ButtonControl: {fileID: 0}
 --- !u!114 &114540225166962336
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -22,16 +22,24 @@ public class SectionReader : MonoBehaviour
 
 	// Update is called once per frame
 	private bool PageOpened = true;
+	private int NumOfSection;
 	void Update()
 	{
 		if (PageOpened)
 		{
-			PageOpened = false;
-			GameObject NewSec = GameObject.Instantiate(sec, this.transform, false);//製造新區段
-			NewSec.transform.parent.SetParent(this.transform);
-			NewSec.gameObject.GetComponent<SectionInfo>().info = read(id);//從資料庫中讀取區段資料並傳出
-		}
+			//這一部分要修改
+			NumOfSection = 2;
 
+			for (int i = 0; i < NumOfSection; i++)
+			{
+				PageOpened = false;
+				GameObject NewSec = GameObject.Instantiate(sec, this.transform, false);//製造新區段
+				NewSec.transform.parent.SetParent(this.transform);
+				NewSec.transform.localPosition += new Vector3(0, - i*NewSec.GetComponent<RectTransform>().sizeDelta.y, 0);
+				NewSec.gameObject.GetComponent<SectionInfo>().info = read(i);//從資料庫中讀取區段資料並傳出
+
+			}
+		}
 	}
 
 	//////////////////

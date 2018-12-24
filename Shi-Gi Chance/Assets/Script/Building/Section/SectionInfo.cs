@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class SecInfo
 {
@@ -12,7 +13,7 @@ public class SecInfo
 	public string Type;
 }
 
-public class SectionInfo : MonoBehaviour
+public class SectionInfo : MonoBehaviour, IPointerDownHandler
 {
 
 	public SecInfo info;
@@ -25,18 +26,22 @@ public class SectionInfo : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-
+		
 	}
 
 
 	////////////////
 
 	[SerializeField] GameObject ChessTemplate;
-	public void ButtonClicked()
+	//內容被按壓時執行
+	public void OnPointerDown(PointerEventData eventData)
 	{
 		Debug.Log("Clicked");
 		//生成棋子
 		GameObject buildingChess = GameObject.Instantiate(ChessTemplate, transform.position, Quaternion.identity);
+
+		//修改棋子圖案
+		SetChess(buildingChess);
 
 		//將旗子移動到滑鼠上
 		Vector3 newPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f);
@@ -56,7 +61,7 @@ public class SectionInfo : MonoBehaviour
 		transform.GetChild(0).GetChild(2).GetChild(0).gameObject.GetComponent<Text>().text = info.Document;
 	}
 
-	public GameObject ButtonControl;
+	private GameObject ButtonControl;
 	private void ClosePage()
 	{
 		//搜尋Editor中的物件
@@ -66,5 +71,12 @@ public class SectionInfo : MonoBehaviour
 		{
 			ButtonControl.GetComponent<ButtonControlScript>().BuildButtonClicked();
 		}
+	}
+
+	//修改棋子圖案 & ID
+	void SetChess(GameObject Chess)
+	{
+		Chess.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(info.Icon);
+		Chess.GetComponent<DragChess>().Info = info;
 	}
 }
