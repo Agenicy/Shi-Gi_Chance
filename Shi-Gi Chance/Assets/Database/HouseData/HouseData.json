@@ -1,0 +1,31 @@
+[{"ID":0,"Title":"一級房屋","Document":"需要 金錢×100   木頭×20   \n金屬×20   水泥×20   \n","Icon":"Icon/House"}
+,{"ID":1,"Title":"海砂屋","Document":"需要 金錢×10   木頭×0   \n金屬×0   水泥×1   \n","Icon":"Icon/SandHouse"}
+,{"ID":2,"Title":"鐵皮屋","Document":"需要 金錢×10   木頭×0   \n金屬×40   水泥×0   \n","Icon":"Icon/IronHouse"}
+,{"ID":3,"Title":"白木屋","Document":"需要 金錢×10   木頭×40   \n金屬×0   水泥×0   \n","Icon":"Icon/WoodHouse"}
+,{"ID":4,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":5,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":6,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":7,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":8,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":9,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":10,"Title":"教堂","Document":"需要 金錢×1000  木頭×500   \n金屬×500   水泥×500   \n前置 一級房屋","Icon":"Icon/House"}
+,{"ID":11,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":12,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":13,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":14,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":15,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":16,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":17,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":18,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":19,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":20,"Title":"噴水池","Document":"需要 金錢×250   木頭×0   \n金屬×50   水泥×500   \n","Icon":"Icon/House"}
+,{"ID":21,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":22,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":23,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":24,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":25,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":26,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":27,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":28,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+,{"ID":29,"Title":"0","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House"}
+]
