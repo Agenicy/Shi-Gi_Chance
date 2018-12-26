@@ -11,6 +11,10 @@ public class SecInfo
 	public string Document;
 	public string Icon;
 	public string Type;
+	public int Coin;
+	public int Wood;
+	public int Metal;
+	public int Concrete;
 }
 
 public class SectionInfo : MonoBehaviour, IPointerDownHandler
@@ -43,7 +47,7 @@ public class SectionInfo : MonoBehaviour, IPointerDownHandler
 		//修改棋子圖案
 		SetChess(buildingChess);
 
-		//將旗子移動到滑鼠上
+		//將棋子移動到滑鼠上
 		Vector3 newPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f);
 		buildingChess.transform.position = Camera.main.ScreenToWorldPoint(newPosition);
 
@@ -53,7 +57,7 @@ public class SectionInfo : MonoBehaviour, IPointerDownHandler
 
 	////////////////
 
-
+	//根據JSON更改內容
 	private void display()
 	{
 		transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(info.Icon);
@@ -62,6 +66,7 @@ public class SectionInfo : MonoBehaviour, IPointerDownHandler
 	}
 
 	private GameObject ButtonControl;
+	//關閉所有頁面
 	private void ClosePage()
 	{
 		//搜尋Editor中的物件

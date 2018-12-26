@@ -27,11 +27,12 @@ public class SectionReader : MonoBehaviour
 	private int NumOfSection;
 	void Update()
 	{
-		select();
-		if (PageOpened)
+		select();//滑鼠滾輪
+
+		if (PageOpened)//只在打開時執行一次
 		{
 			PageOpened = false;
-			SetReader();
+			SetReader(0);
 
 		}
 	}
@@ -39,39 +40,47 @@ public class SectionReader : MonoBehaviour
 	//////////////////
 
 	//////////////////
-	/*
-	SecInfo read(int id)//從檔案讀取
+	
+	//讀取Section內容
+	public void SetReader(int Page)//Page = 0/1/2
 	{
-		FileStream aFile = new FileStream("Assets/Database/" + SecType + "/" + id + ".json", FileMode.Open);
-		StreamReader sr = new StreamReader(aFile);
-		string strLine = sr.ReadLine();
-		Debug.Log(strLine);
-		aFile.Close();
-		return JsonUtility.FromJson<SecInfo>(strLine);
-	}
-	*/
 
-	void SetReader()
-	{
-		// read in json and decode datas from it
+		//delete all section
+
+		// read in json and decode data from it
 		string json = System.IO.File.ReadAllText("Assets/Database/HouseData/" + "HouseData" + ".json");
 		Reader = JsonConvert.DeserializeObject<List<SecInfo>>(json);
 
 		////////////////////////////////
 
-		NumOfSection = 4;
-
+		NumOfSection = 10;
+		//生成Section
 		for (int i = 0; i < NumOfSection; i++)
 		{
-			GameObject NewSec = GameObject.Instantiate(sec, this.transform, false);//製造新區段
+			if (Reader[i+10 * Page].Title == "NULL")
+			{
+				break;
+			}
+
+			GameObject NewSec = GameObject.Instantiate(sec, this.transform, false);
 			NewSec.transform.parent.SetParent(this.transform);
 			NewSec.transform.localPosition += new Vector3(0, -i * NewSec.GetComponent<RectTransform>().sizeDelta.y, 0);
-			NewSec.gameObject.GetComponent<SectionInfo>().info = Reader[i];//從資料庫中讀取區段資料並傳出
+			NewSec.gameObject.GetComponent<SectionInfo>().info = Reader[i + 10 * Page];//從資料庫中讀取區段資料並傳出
+		}
+
+	}
+
+	//清空Reader
+	public void ClearReader()
+	{
+		for (int i = 1; i < transform.childCount; i++)
+		{
+			Destroy(transform.GetChild(i).gameObject);
 		}
 	}
 
 	// /////////////////////
-	//滑鼠滾輪
+	//滑鼠滾輪part1
 	private void select()
 	{
 		if (Input.GetAxis("Mouse ScrollWheel") < 0)
@@ -84,8 +93,8 @@ public class SectionReader : MonoBehaviour
 		}
 	}
 
-
 	int gap = 10;
+	//滑鼠滾輪part2
 	private void mouseWheelChange(int value)
 	{
 		switch (value)
@@ -94,7 +103,7 @@ public class SectionReader : MonoBehaviour
 				for (int i = 0; i < gap; i++)
 				{
 					//距離不對
-					if (GetComponent<RectTransform>().localPosition.y >= -(0.5 * GetComponent<RectTransform>().sizeDelta.y - 0.5* transform.parent.GetComponent<RectTransform>().sizeDelta.y))
+					if (GetComponent<RectTransform>().localPosition.y >= -(0.5 * GetComponent<RectTransform>().sizeDelta.y - 0.5 * transform.parent.GetComponent<RectTransform>().sizeDelta.y))
 					{
 						GetComponent<RectTransform>().localPosition += new Vector3(0, -1, 0);
 					}
@@ -126,4 +135,5 @@ public class SectionReader : MonoBehaviour
 	{
 		GetComponent<RectTransform>().localPosition = new Vector3(0, (float)-(0.5 * GetComponent<RectTransform>().sizeDelta.y - 0.5 * transform.parent.GetComponent<RectTransform>().sizeDelta.y), 0);
 	}
+
 }
