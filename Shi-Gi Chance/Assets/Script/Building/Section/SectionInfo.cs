@@ -15,6 +15,7 @@ public class SecInfo
 	public int Wood;
 	public int Metal;
 	public int Concrete;
+	public string BuildOn;
 }
 
 public class SectionInfo : MonoBehaviour, IPointerDownHandler
@@ -40,7 +41,6 @@ public class SectionInfo : MonoBehaviour, IPointerDownHandler
 	//內容被按壓時執行
 	public void OnPointerDown(PointerEventData eventData)
 	{
-		Debug.Log("Clicked");
 		//生成棋子
 		GameObject buildingChess = GameObject.Instantiate(ChessTemplate, transform.position, Quaternion.identity);
 
@@ -57,12 +57,13 @@ public class SectionInfo : MonoBehaviour, IPointerDownHandler
 
 	////////////////
 
+
 	//根據JSON更改內容
 	private void display()
 	{
-		transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(info.Icon);
-		transform.GetChild(0).GetChild(1).gameObject.GetComponent<Text>().text = info.Title;
-		transform.GetChild(0).GetChild(2).GetChild(0).gameObject.GetComponent<Text>().text = info.Document;
+		transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(info.Icon);//圖示
+		transform.GetChild(0).GetChild(1).gameObject.GetComponent<Text>().text = info.Title;//標題
+		transform.GetChild(0).GetChild(2).GetChild(0).gameObject.GetComponent<Text>().text = info.Document;//內容
 	}
 
 	private GameObject ButtonControl;
@@ -72,6 +73,7 @@ public class SectionInfo : MonoBehaviour, IPointerDownHandler
 		//搜尋Editor中的物件
 		ButtonControl = GameObject.Find("ButtonControl");
 
+		//點擊建築按鈕，關閉頁面
 		if (ButtonControl.GetComponent<ButtonControlScript>().BuildPageIsShowing)
 		{
 			ButtonControl.GetComponent<ButtonControlScript>().BuildButtonClicked();
@@ -84,4 +86,5 @@ public class SectionInfo : MonoBehaviour, IPointerDownHandler
 		Chess.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(info.Icon);
 		Chess.GetComponent<DragChess>().Info = info;
 	}
+
 }
