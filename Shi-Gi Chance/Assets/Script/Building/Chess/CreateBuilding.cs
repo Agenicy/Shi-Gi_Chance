@@ -72,13 +72,16 @@ public class CreateBuilding : MonoBehaviour
 		//從棋子Info取得所有建築物資訊
 		Info = B.gameObject.transform.GetComponent<DragChess>().Info;
 
+		//扣資源
+		GameObject.Find("BuildMaterialMonitor").GetComponent<MaterialManage>().AddMaterial(-1 * Info.Coin, -1 * Info.Wood, -1 * Info.Metal, -1 * Info.Concrete);
+
 		//更改建築名稱
 		BuildingName = Info.Title;
 
 		//製造建築模板
 		CreateBuildingTemplate();
-	}
 
+	}
 
 	//棋子停留時閃爍
 	private void Sparkle()
@@ -106,7 +109,7 @@ public class CreateBuilding : MonoBehaviour
 
 		//生成房屋代表物
 		building = GameObject.Instantiate(BuildingTemplate, transform, false);
-		
+
 		//更改圖案
 		building.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(Info.Icon);
 	}

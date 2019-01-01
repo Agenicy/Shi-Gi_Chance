@@ -22,16 +22,19 @@ public class SectionInfo : MonoBehaviour, IPointerDownHandler
 {
 
 	public SecInfo info;
+
+	public bool Available;
 	// Use this for initialization
 	void Start()
 	{
+		isAvailable();
 		display();
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		
+
 	}
 
 
@@ -41,22 +44,43 @@ public class SectionInfo : MonoBehaviour, IPointerDownHandler
 	//內容被按壓時執行
 	public void OnPointerDown(PointerEventData eventData)
 	{
-		//生成棋子
-		GameObject buildingChess = GameObject.Instantiate(ChessTemplate, transform.position, Quaternion.identity);
+		if (Available)
+		{
+			//生成棋子
+			GameObject buildingChess = GameObject.Instantiate(ChessTemplate, transform.position, Quaternion.identity);
 
-		//修改棋子圖案
-		SetChess(buildingChess);
+			//修改棋子圖案
+			SetChess(buildingChess);
 
-		//將棋子移動到滑鼠上
-		Vector3 newPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f);
-		buildingChess.transform.position = Camera.main.ScreenToWorldPoint(newPosition);
+			//將棋子移動到滑鼠上
+			Vector3 newPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f);
+			buildingChess.transform.position = Camera.main.ScreenToWorldPoint(newPosition);
 
-		//關閉頁面
-		ClosePage();
+			//關閉頁面
+			ClosePage();
+		}
+		else
+		{
+			//Do nothing
+		}
+
 	}
 
 	////////////////
 
+	//檢查是否可用
+	private void isAvailable()
+	{
+		GameObject BuildMaterialMonitor = GameObject.Find("BuildMaterialMonitor");
+		if (info.Coin > BuildMaterialMonitor.GetComponent<MaterialManage>().MaterialQuery("Coin") || info.Wood > BuildMaterialMonitor.GetComponent<MaterialManage>().MaterialQuery("Wood") || info.Metal > BuildMaterialMonitor.GetComponent<MaterialManage>().MaterialQuery("Metal") || info.Concrete > BuildMaterialMonitor.GetComponent<MaterialManage>().MaterialQuery("Concrete"))
+		{
+			Available = false;
+		}
+		else
+		{
+			Available = true;
+		}
+	}
 
 	//根據JSON更改內容
 	private void display()
@@ -64,6 +88,11 @@ public class SectionInfo : MonoBehaviour, IPointerDownHandler
 		transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(info.Icon);//圖示
 		transform.GetChild(0).GetChild(1).gameObject.GetComponent<Text>().text = info.Title;//標題
 		transform.GetChild(0).GetChild(2).GetChild(0).gameObject.GetComponent<Text>().text = info.Document;//內容
+
+		if (!Available)//如果不可建，更改背景顏色
+		{
+			transform.GetChild(0).GetComponent<RawImage>().color = new Color32(90, 0, 0, 120);
+		}
 	}
 
 	private GameObject ButtonControl;
@@ -77,6 +106,9 @@ public class SectionInfo : MonoBehaviour, IPointerDownHandler
 		if (ButtonControl.GetComponent<ButtonControlScript>().BuildPageIsShowing)
 		{
 			ButtonControl.GetComponent<ButtonControlScript>().BuildButtonClicked();
+
+			//重設頁面
+			transform.parent.GetComponent<SectionReader>().PageOpened = true;
 		}
 	}
 

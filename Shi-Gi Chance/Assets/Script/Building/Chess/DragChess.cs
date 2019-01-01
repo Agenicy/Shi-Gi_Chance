@@ -16,7 +16,6 @@ public class DragChess : MonoBehaviour
 
 	void Update()
 	{
-		//Detect if the middle mouse button is pressed
 		if (Input.GetKey(KeyCode.Mouse0))
 		{
 			transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));

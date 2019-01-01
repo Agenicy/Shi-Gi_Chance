@@ -9,8 +9,10 @@ public class SectionReader : MonoBehaviour
 	public List<SecInfo> Reader;
 
 	[SerializeField] GameObject sec;
+	[SerializeField] GameObject top;
 	public int id;
 	public string SecType = "HouseData";
+	int Page;
 
 	private void Awake()
 	{
@@ -20,10 +22,11 @@ public class SectionReader : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		Page = 0;
 	}
 
 	// Update is called once per frame
-	private bool PageOpened = true;
+	public bool PageOpened = true;
 	private int NumOfSection;
 	void Update()
 	{
@@ -32,8 +35,7 @@ public class SectionReader : MonoBehaviour
 		if (PageOpened)//只在打開時執行一次
 		{
 			PageOpened = false;
-			SetReader(0);
-
+			SetReader(Page);
 		}
 	}
 
@@ -41,11 +43,13 @@ public class SectionReader : MonoBehaviour
 
 	//////////////////
 	
-	//讀取Section內容
-	public void SetReader(int Page)//Page = 0/1/2
+	//讀取(Json)Section內容
+	public void SetReader(int page)//page = 0/1/2
 	{
+		Page = page;//讓外部可以更改Page的值
 
 		//delete all section
+		ClearReader();
 
 		// read in json and decode data from it
 		string json = System.IO.File.ReadAllText("Assets/Database/HouseData/" + "HouseData" + ".json");
@@ -59,6 +63,10 @@ public class SectionReader : MonoBehaviour
 		{
 			if (Reader[i+10 * Page].Title == "NULL")
 			{
+				GameObject topBtn = GameObject.Instantiate(top, this.transform, false);
+				topBtn.transform.parent.SetParent(this.transform);
+				topBtn.transform.localPosition += new Vector3(0, -i * sec.GetComponent<RectTransform>().sizeDelta.y- topBtn.GetComponent<RectTransform>().sizeDelta.y, 0);
+
 				break;
 			}
 
@@ -93,7 +101,7 @@ public class SectionReader : MonoBehaviour
 		}
 	}
 
-	int gap = 10;
+	int gap = 30;
 	//滑鼠滾輪part2
 	private void mouseWheelChange(int value)
 	{
