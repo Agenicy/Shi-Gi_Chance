@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b660cdf8c4f227e428a332004c812d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Available: 0
   ChessTemplate: {fileID: 1776914992514350, guid: 424ba42833774e7479972e21256cff2a,
     type: 2}
 --- !u!114 &114540225166962336

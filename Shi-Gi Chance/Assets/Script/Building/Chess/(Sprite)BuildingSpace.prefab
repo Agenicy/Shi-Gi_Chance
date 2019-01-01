@@ -110,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuildingTemplate: {fileID: 1009614483641452, guid: 093db35d5378a45469b6fada172dc60f,
     type: 2}
-  HasBuilding: 0
+  BuildingName: "\u7A7A\u5730"
 --- !u!212 &212276619016432896
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -1,6 +1,6 @@
 [{"ID":0,"Title":"一級房屋","Document":"需要 金錢×100   木頭×20   \n金屬×20   水泥×20   \n","Icon":"Icon/House","Coin":100,"Wood":20,"Metal":20,"Concrete":20,"BuildOn":"空地"}
 ,{"ID":1,"Title":"海砂屋","Document":"需要 金錢×10   木頭×0   \n金屬×0   水泥×1   \n","Icon":"Icon/SandHouse","Coin":10,"Wood":0,"Metal":0,"Concrete":1,"BuildOn":"空地"}
-,{"ID":2,"Title":"鐵皮屋","Document":"需要 金錢×10   木頭×0   \n金屬×40   水泥×0   \n","Icon":"Icon/IronHouse","Coin":10,"Wood":0,"Metal":40,"Concrete":0,"BuildOn":"空地"}
+,{"ID":2,"Title":"信號塔","Document":"需要 金錢×10   木頭×0   \n金屬×40   水泥×0   \n","Icon":"Icon/Tower","Coin":10,"Wood":0,"Metal":80,"Concrete":0,"BuildOn":"空地"}
 ,{"ID":3,"Title":"白木屋","Document":"需要 金錢×10   木頭×40   \n金屬×0   水泥×0   \n","Icon":"Icon/WoodHouse","Coin":10,"Wood":40,"Metal":0,"Concrete":0,"BuildOn":"空地"}
 ,{"ID":4,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
 ,{"ID":5,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
@@ -9,18 +9,18 @@
 ,{"ID":8,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
 ,{"ID":9,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
 ,{"ID":10,"Title":"教堂","Document":"需要 金錢×1000  木頭×500   \n金屬×500   水泥×500   \n前置 一級房屋","Icon":"Icon/Church","Coin":1000,"Wood":500,"Metal":500,"Concrete":500,"BuildOn":"一級房屋"}
-,{"ID":11,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
-,{"ID":12,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
-,{"ID":13,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
-,{"ID":14,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
-,{"ID":15,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
-,{"ID":16,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
-,{"ID":17,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
-,{"ID":18,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
-,{"ID":19,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
+,{"ID":11,"Title":"幸運方塊","Document":"需要 金錢×500   木頭×80   \n金屬×500   水泥×40   \n前置 教堂","Icon":"Icon/LuckyBlock","Coin":500,"Wood":80,"Metal":500,"Concrete":40,"BuildOn":"教堂"}
+,{"ID":12,"Title":"賭場","Document":"需要 金錢×5000   木頭×50   \n金屬×500   水泥×100   \n前置 白木屋","Icon":"Icon/Gambling","Coin":5000,"Wood":50,"Metal":500,"Concrete":100,"BuildOn":"白木屋"}
+,{"ID":13,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n前置 ","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
+,{"ID":14,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n前置 ","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
+,{"ID":15,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n前置 ","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
+,{"ID":16,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n前置 ","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
+,{"ID":17,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n前置 ","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
+,{"ID":18,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n前置 ","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
+,{"ID":19,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n前置 ","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
 ,{"ID":20,"Title":"噴水池","Document":"需要 金錢×250   木頭×0   \n金屬×50   水泥×500   \n","Icon":"Icon/Fountain","Coin":250,"Wood":0,"Metal":50,"Concrete":500,"BuildOn":"空地"}
-,{"ID":21,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
-,{"ID":22,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
+,{"ID":21,"Title":"礦場","Document":"需要 金錢×-1000 木頭×-100\n金屬×-100  水泥×-100\n","Icon":"Icon/GoldenFinger","Coin":-1000,"Wood":-100,"Metal":-100,"Concrete":-100,"BuildOn":"空地"}
+,{"ID":22,"Title":"C#","Document":"需要 金錢×-2000   木頭×0   \n金屬×0   水泥×-100   \n","Icon":"Icon/Csharp","Coin":-2000,"Wood":0,"Metal":0,"Concrete":-100,"BuildOn":"空地"}
 ,{"ID":23,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
 ,{"ID":24,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}
 ,{"ID":25,"Title":"NULL","Document":"需要 金錢×0   木頭×0   \n金屬×0   水泥×0   \n","Icon":"Icon/House","Coin":0,"Wood":0,"Metal":0,"Concrete":0,"BuildOn":"空地"}

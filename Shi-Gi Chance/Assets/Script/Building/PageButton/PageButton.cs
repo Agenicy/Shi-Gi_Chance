@@ -61,5 +61,6 @@ public class PageButton : MonoBehaviour
 		GameObject Reader = transform.parent.parent.GetChild(2).GetChild(0).GetChild(0).GetChild(0).gameObject;
 		Reader.GetComponent<SectionReader>().ClearReader();
 		Reader.GetComponent<SectionReader>().SetReader(Page);
+		Reader.GetComponent<SectionReader>().ScrollToTop();
 	}
 }

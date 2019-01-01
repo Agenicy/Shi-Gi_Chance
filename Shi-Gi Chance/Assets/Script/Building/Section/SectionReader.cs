@@ -36,6 +36,7 @@ public class SectionReader : MonoBehaviour
 		{
 			PageOpened = false;
 			SetReader(Page);
+			ScrollToTop();
 		}
 	}
 
@@ -81,7 +82,7 @@ public class SectionReader : MonoBehaviour
 	//清空Reader
 	public void ClearReader()
 	{
-		for (int i = 1; i < transform.childCount; i++)
+		for (int i = 0; i < transform.childCount; i++)
 		{
 			Destroy(transform.GetChild(i).gameObject);
 		}
