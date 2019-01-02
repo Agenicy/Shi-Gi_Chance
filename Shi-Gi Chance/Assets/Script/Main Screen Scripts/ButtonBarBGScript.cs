@@ -16,13 +16,13 @@ public class ButtonBarBGScript : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		ObjectResize();
+		// ObjectResize();
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		ObjectResize();
+		// ObjectResize();
 	}
 
 	//////////////////

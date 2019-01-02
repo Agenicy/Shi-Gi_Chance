@@ -12,20 +12,20 @@ public class BuildMaterialMonitorScript : MonoBehaviour {
 	// Use this for initialization before awake
 	void Awake()
 	{
-		transform.SetParent(MainScreenPanel.transform);
+		// transform.SetParent(MainScreenPanel.transform);
 	}
 
 	// Use this for initialization
 	void Start ()
 	{
-		ObjectResize();
-		transform.SetAsLastSibling();
+		// ObjectResize();
+		// transform.SetAsLastSibling();
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		ObjectResize();
+		// ObjectResize();
 	}
 
 	//////////////////

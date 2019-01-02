@@ -11,20 +11,20 @@ public class FoodRegisterButtonScript : MonoBehaviour {
 	// Use this for initialization before Start()
 	void Awake()
 	{
-		transform.SetParent(MainScreenPanel.transform);
-		ObjectResize();
+		// transform.SetParent(MainScreenPanel.transform);
+		// ObjectResize();
 	}
 
 	// Use this for initialization
 	void Start ()
 	{
-		ObjectResize();
+		// ObjectResize();
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		ObjectResize();
+		// ObjectResize();
 	}
 
 	//////////////////

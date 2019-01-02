@@ -11,19 +11,19 @@ public class StatueButtonScript : MonoBehaviour {
 	// Use this for initialization before Start()
 	void Awake ()
 	{
-		transform.SetParent(MainScreenPanel.transform);
+		//transform.SetParent(MainScreenPanel.transform);
 	}
 	
 	// Use this for initialization
 	void Start ()
 	{
-		ObjectResize();
+		//ObjectResize();
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		ObjectResize();
+		//ObjectResize();
 	}
 
 	//////////////////
