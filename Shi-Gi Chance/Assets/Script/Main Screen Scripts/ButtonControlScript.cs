@@ -45,6 +45,7 @@ public class ButtonControlScript : MonoBehaviour {
 
 	//////////////////
 	public GameObject FoodRegisterPage;
+	public GameObject FoodTypeController;
 	private bool FoodRegisterPageIsShowing;
 	
 	void FoodRegisterButtonClicked()
@@ -52,6 +53,12 @@ public class ButtonControlScript : MonoBehaviour {
 		Debug.Log("A");
 		FoodRegisterPageIsShowing = !FoodRegisterPageIsShowing;
 		FoodRegisterPage.SetActive(FoodRegisterPageIsShowing);
+		FoodTypeController.GetComponent<FoodTypeControllerScript>().UnselectAllMaintype();
+		FoodTypeController.GetComponent<FoodTypeControllerScript>().UnselectAllSubtype();
+		FoodTypeController.GetComponent<FoodTypeControllerScript>().ShowAllMaintype();
+		FoodTypeController.GetComponent<FoodTypeControllerScript>().HideAllSubtype();
+		FoodTypeController.GetComponent<FoodTypeControllerScript>().CreateFoodList();
+		FoodTypeController.GetComponent<FoodTypeControllerScript>().HideDropdown();
 	}
 
 	//////////////////

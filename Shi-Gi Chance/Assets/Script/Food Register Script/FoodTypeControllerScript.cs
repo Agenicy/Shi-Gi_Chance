@@ -1,59 +1,161 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System.IO;
+using Newtonsoft.Json;
 
 public class FoodTypeControllerScript : MonoBehaviour {
 
 	public GameObject FoodRegisterPage;
+	public GameObject FoodChoosingDropdown;
 	//////////////////
-	public GameObject FoodType1;
-	public GameObject FoodType2;
-	public GameObject FoodType3;
-	public GameObject FoodType4;
-	public GameObject FoodType5;
-	public GameObject FoodType6;
+	public GameObject[] Maintype;
+	public GameObject[] Subtype;
+	public List<Food> SelectedFood;
+	public string JSONString;
 	//////////////////
 
 	// Use this for initialization before start
 	void Awake()
 	{
 		transform.SetParent(FoodRegisterPage.transform);
+		CreateFoodList();
 	}
 
 	// Use this for initialization
 	void Start ()
 	{
-		ObjectResize();
+		ShowAllMaintype();
+		HideAllSubtype();
+		UnselectAllMaintype();
+		HideDropdown();
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		ObjectResize();
+		DetectMaintypeToggle();
+		DetectSubtypeToggle();
 	}
 
 	//////////////////
 
-	void ObjectResize()
+	public void DetectMaintypeToggle()
 	{
-		//GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width, Screen.height - 160 - Screen.width / 4);
-		/*		FoodType1.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 6, 80);
-				FoodType1.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 120);
-
-				FoodType2.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 6, 80);
-				FoodType2.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 200);
-
-				FoodType3.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 6, 80);
-				FoodType3.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 280);
-
-				FoodType4.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 6, 80);
-				FoodType4.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 360);
-
-				FoodType5.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 6, 80);
-				FoodType5.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 440);
-
-				FoodType6.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 6, 80);
-				FoodType6.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height / 2 - 520);
-		*/
+		for(int temp = 0;temp < 16;++temp)
+		{
+			if(Maintype[temp].GetComponent<Toggle>().isOn)
+			{
+				GameObject TempMainType = Maintype[temp];
+				HideAllMaintype();
+				for(int temp2 = 0;temp2 < TempMainType.GetComponent<MainTypeScript>().SubType.Count;++temp2)
+				{
+					Subtype[temp2].SetActive(true);
+					Subtype[temp2].GetComponentInChildren<Text>().text = TempMainType.GetComponent<MainTypeScript>().SubType[temp2];
+				}
+				Maintype[temp].GetComponent<Toggle>().isOn = false;
+				for (int temp2 = SelectedFood.Count - 1; temp2 >= 0; --temp2)
+				{
+					if (SelectedFood[temp2].MainType != temp + 1)
+					{
+						SelectedFood.RemoveAt(temp2);
+					}
+				}
+				break;
+			}
+		}
 	}
+
+	public void DetectSubtypeToggle()
+	{
+		for(int temp = 0;temp < 10;++temp)
+		{
+			if(Subtype[temp].GetComponent<Toggle>().isOn)
+			{
+				//GameObject TempSubType = Subtype[temp];
+				HideAllSubtype();
+				for (int temp2 = SelectedFood.Count - 1; temp2 >= 0; --temp2)
+				{
+					if (SelectedFood[temp2].SubType != temp + 1)
+					{
+						SelectedFood.RemoveAt(temp2);
+					}
+				}
+				foreach (Food food in SelectedFood)
+				{
+					FoodChoosingDropdown.GetComponent<Dropdown>().options.Add(new Dropdown.OptionData(food.FoodName));
+				}
+				UnselectAllSubtype();
+				ShowDropdown();
+				break;
+			}
+
+		}
+	}
+
+	public void UnselectAllMaintype()
+	{
+		for (int temp = 0; temp < 16; ++temp)
+		{
+			Maintype[temp].GetComponent<Toggle>().isOn = false;
+		}
+	}
+
+	public void UnselectAllSubtype()
+	{
+		for (int temp = 0; temp < 10; ++temp)
+		{
+			Subtype[temp].GetComponent<Toggle>().isOn = false;
+		}
+	}
+
+	public void HideAllMaintype()
+	{
+		for(int temp = 0;temp < 16;++temp)
+		{
+			Maintype[temp].SetActive(false);
+		}
+	}
+
+	public void ShowAllMaintype()
+	{
+		for (int temp = 0; temp < 16; ++temp)
+		{
+			Maintype[temp].SetActive(true);
+		}
+	}
+
+	public void HideAllSubtype()
+	{
+		for (int temp = 0; temp < 10; ++temp)
+		{
+			Subtype[temp].SetActive(false);
+		}
+	}
+
+	public void HideDropdown()
+	{
+		FoodChoosingDropdown.SetActive(false);
+	}
+
+	public void ShowDropdown()
+	{
+		FoodChoosingDropdown.SetActive(true);
+	}
+
+	public void CreateFoodList()
+	{
+		JSONString = File.ReadAllText("Assets/Database/Food.json");
+		SelectedFood = JsonConvert.DeserializeObject<List<Food>>(JSONString);
+		//Debug.Log(JsonConvert.DeserializeObject<List<Food>>(JSONString)[12].FoodName);
+	}
+}
+
+[System.Serializable]
+public class Food
+{
+	public string FoodName;
+	public int MainType;
+	public int SubType;
 }
