@@ -9,6 +9,8 @@ public class FoodTypeControllerScript : MonoBehaviour {
 
 	public GameObject FoodRegisterPage;
 	public GameObject FoodChoosingDropdown;
+	public GameObject ConfirmButton;
+	public GameObject HistoryFoodOfToday;
 	//////////////////
 	public GameObject[] Maintype;
 	public GameObject[] Subtype;
@@ -20,6 +22,7 @@ public class FoodTypeControllerScript : MonoBehaviour {
 	void Awake()
 	{
 		transform.SetParent(FoodRegisterPage.transform);
+		ConfirmButton.GetComponent<Button>().onClick.AddListener(ConfirmButtonClicked);
 		CreateFoodList();
 	}
 
@@ -137,11 +140,15 @@ public class FoodTypeControllerScript : MonoBehaviour {
 	public void HideDropdown()
 	{
 		FoodChoosingDropdown.SetActive(false);
+		ConfirmButton.SetActive(true);
 	}
 
 	public void ShowDropdown()
 	{
 		FoodChoosingDropdown.SetActive(true);
+		FoodChoosingDropdown.GetComponentInChildren<Text>().text
+		= FoodChoosingDropdown.GetComponent<Dropdown>().options[FoodChoosingDropdown.GetComponent<Dropdown>().value].text;
+		ConfirmButton.SetActive(true);
 	}
 
 	public void CreateFoodList()
@@ -149,6 +156,11 @@ public class FoodTypeControllerScript : MonoBehaviour {
 		JSONString = File.ReadAllText("Assets/Database/Food.json");
 		SelectedFood = JsonConvert.DeserializeObject<List<Food>>(JSONString);
 		//Debug.Log(JsonConvert.DeserializeObject<List<Food>>(JSONString)[12].FoodName);
+	}
+
+	public void ConfirmButtonClicked()
+	{
+		HistoryFoodOfToday.GetComponent<Dropdown>().options.Add(new Dropdown.OptionData(FoodChoosingDropdown.GetComponent<Dropdown>().options[FoodChoosingDropdown.GetComponent<Dropdown>().value].text));
 	}
 }
 

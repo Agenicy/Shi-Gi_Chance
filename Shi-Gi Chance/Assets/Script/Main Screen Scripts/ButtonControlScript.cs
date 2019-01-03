@@ -35,6 +35,9 @@ public class ButtonControlScript : MonoBehaviour {
 
 		AchevementPageIsShowing = false;
 		AchevementPage.SetActive(AchevementPageIsShowing);
+
+		StatusPageIsShowing = false;
+		StatusPage.SetActive(StatusPageIsShowing);
 	}
 	
 	// Update is called once per frame
@@ -82,8 +85,12 @@ public class ButtonControlScript : MonoBehaviour {
 	}
 
 	//////////////////
+	public GameObject StatusPage;
+	private bool StatusPageIsShowing;
 	void StatusButtonClicked()
 	{
 		Debug.Log("Q");
+		StatusPageIsShowing = !StatusPageIsShowing;
+		StatusPage.SetActive(StatusPageIsShowing);
 	}
 }
