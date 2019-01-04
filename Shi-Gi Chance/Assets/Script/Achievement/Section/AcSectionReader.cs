@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 public class AcSectionReader : MonoBehaviour
 {
-	public List<AchInfo> Reader;
+	public List<AchInfo> AcReader;
 
 	[SerializeField] GameObject sec;
 	[SerializeField] GameObject top;
@@ -43,7 +43,7 @@ public class AcSectionReader : MonoBehaviour
 	//////////////////
 
 	//////////////////
-	
+
 	//讀取(Json)Section內容
 	public void SetReader(int page)//page = 0/1/2
 	{
@@ -55,10 +55,10 @@ public class AcSectionReader : MonoBehaviour
 		/*改成 成就資料庫*/
 		// read in json and decode data from it
 		string json = System.IO.File.ReadAllText("Assets/Database/HouseData/" + "HouseData" + ".json");
-		Reader = JsonConvert.DeserializeObject<List<AchInfo>>(json);
+		AcReader = JsonConvert.DeserializeObject<List<AchInfo>>(json);
 
 		////////////////////////////////
-
+		/*
 		NumOfSection = 10;
 		//生成Section
 		for (int i = 0; i < NumOfSection; i++)
@@ -77,7 +77,7 @@ public class AcSectionReader : MonoBehaviour
 			NewSec.transform.localPosition += new Vector3(0, -i * NewSec.GetComponent<RectTransform>().sizeDelta.y, 0);
 			NewSec.gameObject.GetComponent<SectionInfo>().info = Reader[i + 10 * Page];//從資料庫中讀取區段資料並傳出
 		}
-
+		*/
 	}
 
 	//清空Reader
