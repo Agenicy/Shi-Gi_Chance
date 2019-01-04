@@ -10,7 +10,7 @@ public class PumpingLogo : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		InvokeRepeating("Bumping",0, 2*(float)60 / BPM);
+		InvokeRepeating("Bumping", 2*(float)60 / BPM, 2*(float)60 / BPM);
 		GetComponent<AudioSource>().Play();
 	}
 
