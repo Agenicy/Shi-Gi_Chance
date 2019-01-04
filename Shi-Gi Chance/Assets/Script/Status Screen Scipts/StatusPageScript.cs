@@ -39,11 +39,24 @@ public class StatusPageScript : MonoBehaviour {
 		StreamWriter FoodSaver = new StreamWriter("Assets/Resources/Save/FoodHistory.txt", false);
 		for (int temp = 0; temp < 7; ++temp)
 		{
-			foreach (Dropdown.OptionData FoodName in HistoryFood[temp].GetComponentInChildren<Dropdown>().options)
+			for(int temp2 = 0;temp2 < HistoryFood[temp].GetComponentInChildren<Dropdown>().options.Count;++temp2)
 			{
-				FoodSaver.WriteLine(FoodName.text + " ");
+				if(HistoryFood[temp].GetComponentInChildren<Dropdown>().options.Count >= 2)
+				{
+					for(int temp3 = HistoryFood[temp].GetComponentInChildren<Dropdown>().options.Count - 1;temp3 > temp2;--temp3)
+					{
+						if(HistoryFood[temp].GetComponentInChildren<Dropdown>().options[temp2].text ==
+						HistoryFood[temp].GetComponentInChildren<Dropdown>().options[temp3].text)
+						{
+							HistoryFood[temp].GetComponentInChildren<Dropdown>().options.RemoveAt(temp3);
+						}
+					}
+					FoodSaver.WriteLine(HistoryFood[temp].GetComponentInChildren<Dropdown>().options[temp2].text);
+				}
+				else
+					FoodSaver.WriteLine(HistoryFood[temp].GetComponentInChildren<Dropdown>().options[temp2].text);
 			}
-			FoodSaver.WriteLine("\r\n");
+			FoodSaver.WriteLine("");
 		}
 		FoodSaver.WriteLine(DateTime.Today.ToString("yyyy-MM-dd"));
 		FoodSaver.Close();
@@ -65,7 +78,6 @@ public class StatusPageScript : MonoBehaviour {
 				else
 				{
 					ReadedLine = ++temp2;
-					++ReadedLine;
 					break;
 				}
 			}
@@ -108,7 +120,21 @@ public class StatusPageScript : MonoBehaviour {
 		{
 			HistoryFood[6].GetComponentInChildren<Dropdown>().options.Add(new Dropdown.OptionData(FoodName));
 		}
-		for(int temp2 = TodaysFood.Count - 1;temp2 >= 0;--temp2)
+		for (int temp2 = 0; temp2 < HistoryFood[6].GetComponentInChildren<Dropdown>().options.Count; ++temp2)
+		{
+			if (HistoryFood[6].GetComponentInChildren<Dropdown>().options.Count >= 2)
+			{
+				for (int temp3 = HistoryFood[6].GetComponentInChildren<Dropdown>().options.Count - 1; temp3 > temp2; --temp3)
+				{
+					if (HistoryFood[6].GetComponentInChildren<Dropdown>().options[temp2].text ==
+					HistoryFood[6].GetComponentInChildren<Dropdown>().options[temp3].text)
+					{
+						HistoryFood[6].GetComponentInChildren<Dropdown>().options.RemoveAt(temp3);
+					}
+				}
+			}
+		}
+		for (int temp2 = TodaysFood.Count - 1;temp2 >= 0;--temp2)
 		{
 			TodaysFood.RemoveAt(temp2);
 		}

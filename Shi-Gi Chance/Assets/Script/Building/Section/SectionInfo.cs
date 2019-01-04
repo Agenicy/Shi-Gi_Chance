@@ -4,11 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class AchInfo
+public class SecInfo
 {
-	/*put sth here*/
+	public int ID;
+	public string Title;
+	public string Document;
+	public string Icon;
+	public string Type;
+	public int Coin;
+	public int Wood;
+	public int Metal;
+	public int Concrete;
+	public string BuildOn;
 }
-
 public class SectionInfo : MonoBehaviour, IPointerDownHandler
 {
 

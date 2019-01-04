@@ -76,12 +76,23 @@ public class ButtonControlScript : MonoBehaviour {
 
 	//////////////////
 	public GameObject AchevementPage;
+	public GameObject AchScrollingField;
 	private bool AchevementPageIsShowing;
 	void AchevementButtonClicked()
 	{
 		Debug.Log("S");
 		AchevementPageIsShowing = !AchevementPageIsShowing;
 		AchevementPage.SetActive(AchevementPageIsShowing);
+		if(AchevementPageIsShowing)
+			AchScrollingField.GetComponent<AchScrollingFieldScript>().DisplayBlocks();
+		if(!AchevementPageIsShowing)
+		{
+			for(int temp = AchScrollingField.GetComponent<AchScrollingFieldScript>().QuestBlockList.Count - 1;temp >= 0;--temp)
+			{
+				Destroy(AchScrollingField.GetComponent<AchScrollingFieldScript>().QuestBlockList[temp]);
+				AchScrollingField.GetComponent<AchScrollingFieldScript>().QuestBlockList.Clear();
+			}
+		}
 	}
 
 	//////////////////
