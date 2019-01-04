@@ -4,12 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class AchInfo
+public class SecInfo
 {
-	/*put sth here*/
+	public int ID;
+	public string Title;
+	public string Document;
+	public string Icon;
+	public string Type;
+	public int Coin;
+	public int Wood;
+	public int Metal;
+	public int Concrete;
+	public string BuildOn;
 }
 
-public class SectionInfo : MonoBehaviour, IPointerDownHandler
+public class AcSectionInfo : MonoBehaviour, IPointerDownHandler
 {
 
 	public SecInfo info;
@@ -37,18 +46,10 @@ public class SectionInfo : MonoBehaviour, IPointerDownHandler
 	{
 		if (Available)
 		{
-			//生成棋子
-			GameObject buildingChess = GameObject.Instantiate(ChessTemplate, transform.position, Quaternion.identity);
+			/*如果可以執行的話要做的動作*/
 
-			//修改棋子圖案
-			SetChess(buildingChess);
-
-			//將棋子移動到滑鼠上
-			Vector3 newPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f);
-			buildingChess.transform.position = Camera.main.ScreenToWorldPoint(newPosition);
-
-			//關閉頁面
-			ClosePage();
+			//關閉本頁面
+			//ClosePage();
 		}
 		else
 		{
@@ -62,6 +63,8 @@ public class SectionInfo : MonoBehaviour, IPointerDownHandler
 	//檢查是否可用
 	private void isAvailable()
 	{
+		//替換成你的
+		/*
 		GameObject BuildMaterialMonitor = GameObject.Find("BuildMaterialMonitor");
 		if (info.Coin > BuildMaterialMonitor.GetComponent<MaterialManage>().MaterialQuery("Coin") || info.Wood > BuildMaterialMonitor.GetComponent<MaterialManage>().MaterialQuery("Wood") || info.Metal > BuildMaterialMonitor.GetComponent<MaterialManage>().MaterialQuery("Metal") || info.Concrete > BuildMaterialMonitor.GetComponent<MaterialManage>().MaterialQuery("Concrete"))
 		{
@@ -71,16 +74,18 @@ public class SectionInfo : MonoBehaviour, IPointerDownHandler
 		{
 			Available = true;
 		}
+		*/
 	}
 
 	//根據JSON更改內容
 	private void display()
 	{
+		/*改成你的東西*/
 		transform.GetChild(1).GetChild(0).gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(info.Icon);//圖示
 		transform.GetChild(1).GetChild(1).gameObject.GetComponent<Text>().text = info.Title;//標題
 		transform.GetChild(1).GetChild(2).GetChild(0).gameObject.GetComponent<Text>().text = info.Document;//內容
 
-		if (!Available)//如果不可建，更改背景顏色
+		if (!Available)//如果不行，更改背景顏色
 		{
 			transform.GetChild(1).GetComponent<RawImage>().color = new Color32(150, 100, 100, 255);
 		}
@@ -90,6 +95,8 @@ public class SectionInfo : MonoBehaviour, IPointerDownHandler
 	//關閉所有頁面
 	private void ClosePage()
 	{
+		/*BuildButtonClicked你要再自己建*/
+
 		//搜尋Editor中的物件
 		ButtonControl = GameObject.Find("ButtonControl");
 
@@ -103,13 +110,7 @@ public class SectionInfo : MonoBehaviour, IPointerDownHandler
 		}
 	}
 
-	//修改棋子圖案 & ID
-	void SetChess(GameObject Chess)
-	{
-		Chess.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(info.Icon);
-		Chess.GetComponent<DragChess>().Info = info;
-	}
-
+	// ////////////
 	public void Hover()
 	{
 		transform.GetChild(0).gameObject.SetActive(true);
