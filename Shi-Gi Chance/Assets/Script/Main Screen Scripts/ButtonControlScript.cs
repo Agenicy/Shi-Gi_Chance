@@ -93,6 +93,9 @@ public class ButtonControlScript : MonoBehaviour {
 		Debug.Log("Q");
 		StatusPageIsShowing = !StatusPageIsShowing;
 		StatusPage.SetActive(StatusPageIsShowing);
-		StatusPageController.GetComponent<StatusPageScript>().SaveData();
+		if(StatusPageIsShowing)
+			StatusPageController.GetComponent<StatusPageScript>().ReadData();
+		if(!StatusPageIsShowing)
+			StatusPageController.GetComponent<StatusPageScript>().SaveData();
 	}
 }

@@ -10,7 +10,7 @@ public class FoodTypeControllerScript : MonoBehaviour {
 	public GameObject FoodRegisterPage;
 	public GameObject FoodChoosingDropdown;
 	public GameObject ConfirmButton;
-	public GameObject HistoryFoodOfToday;
+	public GameObject HistoryFood;
 	//////////////////
 	public GameObject[] Maintype;
 	public GameObject[] Subtype;
@@ -160,7 +160,7 @@ public class FoodTypeControllerScript : MonoBehaviour {
 
 	public void ConfirmButtonClicked()
 	{
-		HistoryFoodOfToday.GetComponent<Dropdown>().options.Add(new Dropdown.OptionData(FoodChoosingDropdown.GetComponent<Dropdown>().options[FoodChoosingDropdown.GetComponent<Dropdown>().value].text));
+		HistoryFood.GetComponent<StatusPageScript>().TodaysFood.Add(FoodChoosingDropdown.GetComponent<Dropdown>().options[FoodChoosingDropdown.GetComponent<Dropdown>().value].text);
 	}
 }
 

@@ -4113,7 +4113,7 @@ MonoBehaviour:
   FoodRegisterPage: {fileID: 942398950}
   FoodChoosingDropdown: {fileID: 2063325757}
   ConfirmButton: {fileID: 491230112}
-  HistoryFoodOfToday: {fileID: 294553102}
+  HistoryFood: {fileID: 475107593}
   Maintype:
   - {fileID: 219179317}
   - {fileID: 1291563019}
@@ -6173,6 +6173,7 @@ MonoBehaviour:
   - {fileID: 2076367756}
   - {fileID: 1753119964}
   - {fileID: 489253250}
+  TodaysFood: []
   help: []
 --- !u!1 &476376437
 GameObject:
