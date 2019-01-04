@@ -85,13 +85,13 @@ public class SectionInfo : MonoBehaviour, IPointerDownHandler
 	//根據JSON更改內容
 	private void display()
 	{
-		transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(info.Icon);//圖示
-		transform.GetChild(0).GetChild(1).gameObject.GetComponent<Text>().text = info.Title;//標題
-		transform.GetChild(0).GetChild(2).GetChild(0).gameObject.GetComponent<Text>().text = info.Document;//內容
+		transform.GetChild(1).GetChild(0).gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(info.Icon);//圖示
+		transform.GetChild(1).GetChild(1).gameObject.GetComponent<Text>().text = info.Title;//標題
+		transform.GetChild(1).GetChild(2).GetChild(0).gameObject.GetComponent<Text>().text = info.Document;//內容
 
 		if (!Available)//如果不可建，更改背景顏色
 		{
-			transform.GetChild(0).GetComponent<RawImage>().color = new Color32(90, 0, 0, 120);
+			transform.GetChild(1).GetComponent<RawImage>().color = new Color32(150, 100, 100, 255);
 		}
 	}
 
@@ -119,4 +119,14 @@ public class SectionInfo : MonoBehaviour, IPointerDownHandler
 		Chess.GetComponent<DragChess>().Info = info;
 	}
 
+	public void Hover()
+	{
+		transform.GetChild(0).gameObject.SetActive(true);
+		GetComponent<AudioSource>().Play();
+	}
+
+	public void NoHover()
+	{
+		transform.GetChild(0).gameObject.SetActive(false);
+	}
 }

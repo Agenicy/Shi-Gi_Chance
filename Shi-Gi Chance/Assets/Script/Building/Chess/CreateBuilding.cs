@@ -65,6 +65,9 @@ public class CreateBuilding : MonoBehaviour
 	//根據碰撞箱父物件生成建築，成為目前地板的子物件
 	private void BuildHouse(Collider2D B)
 	{
+		//播放音效
+		Debug.Log(GetComponent<AudioSource>().clip);
+		GetComponent<AudioSource>().Play();
 
 		//將透明度改回去
 		SparkleOff();
