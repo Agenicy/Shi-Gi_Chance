@@ -86,11 +86,13 @@ public class ButtonControlScript : MonoBehaviour {
 
 	//////////////////
 	public GameObject StatusPage;
+	public GameObject StatusPageController;
 	private bool StatusPageIsShowing;
 	void StatusButtonClicked()
 	{
 		Debug.Log("Q");
 		StatusPageIsShowing = !StatusPageIsShowing;
 		StatusPage.SetActive(StatusPageIsShowing);
+		StatusPageController.GetComponent<StatusPageScript>().SaveData();
 	}
 }

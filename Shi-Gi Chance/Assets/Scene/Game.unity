@@ -2162,6 +2162,7 @@ MonoBehaviour:
   BuildPageIsShowing: 0
   AchevementPage: {fileID: 1965447944}
   StatusPage: {fileID: 1675790263}
+  StatusPageController: {fileID: 475107593}
 --- !u!114 &179076319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6172,6 +6173,7 @@ MonoBehaviour:
   - {fileID: 2076367756}
   - {fileID: 1753119964}
   - {fileID: 489253250}
+  help: []
 --- !u!1 &476376437
 GameObject:
   m_ObjectHideFlags: 0
