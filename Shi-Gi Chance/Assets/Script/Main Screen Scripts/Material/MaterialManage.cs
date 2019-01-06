@@ -64,10 +64,10 @@ public class MaterialManage : MonoBehaviour
 	//讓文字 = 數字
 	public void Refresh()
 	{
-		transform.GetChild(0).GetChild(0).transform.GetComponent<Text>().text = Coin.ToString();
-		transform.GetChild(1).GetChild(0).transform.GetComponent<Text>().text = Wood.ToString();
-		transform.GetChild(2).GetChild(0).transform.GetComponent<Text>().text = Metal.ToString();
-		transform.GetChild(3).GetChild(0).transform.GetComponent<Text>().text = Concrete.ToString();
+		transform.GetChild(1).GetChild(0).transform.GetComponent<Text>().text = Coin.ToString();
+		transform.GetChild(2).GetChild(0).transform.GetComponent<Text>().text = Wood.ToString();
+		transform.GetChild(3).GetChild(0).transform.GetComponent<Text>().text = Metal.ToString();
+		transform.GetChild(4).GetChild(0).transform.GetComponent<Text>().text = Concrete.ToString();
 	}
 
 	//(overload)第一種查詢方法
