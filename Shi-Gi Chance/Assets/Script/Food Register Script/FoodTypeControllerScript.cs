@@ -151,6 +151,15 @@ public class FoodTypeControllerScript : MonoBehaviour {
 		ConfirmButton.SetActive(true);
 	}
 
+	public void ClearDropdown()
+	{
+		int temp = FoodChoosingDropdown.GetComponent<Dropdown>().options.Count - 1;
+		for(;temp >= 0;--temp)
+		{
+			FoodChoosingDropdown.GetComponent<Dropdown>().options.RemoveAt(temp);
+		}
+	}
+
 	public void CreateFoodList()
 	{
 		JSONString = File.ReadAllText("Assets/Database/Food.json");

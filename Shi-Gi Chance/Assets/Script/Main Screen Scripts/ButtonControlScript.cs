@@ -85,6 +85,7 @@ public class ButtonControlScript : MonoBehaviour
 		FoodTypeController.GetComponent<FoodTypeControllerScript>().HideAllSubtype();
 		FoodTypeController.GetComponent<FoodTypeControllerScript>().CreateFoodList();
 		FoodTypeController.GetComponent<FoodTypeControllerScript>().HideDropdown();
+		FoodTypeController.GetComponent<FoodTypeControllerScript>().ClearDropdown();
 	}
 
 	//////////////////
